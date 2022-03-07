@@ -1,0 +1,15 @@
+<%- include('../partials/html-head') %>
+<%- include('../partials/nav') %>
+
+<section>
+  <h1>Log Event! 📝📝📝</h1>
+  <h2>All Events!</h2>
+  <tr>
+    <% logEvents.forEach(logEvent => { %>
+    <td><%= logEvent.name %></td>
+    <td><%= logEvetn.location %></td>
+  <% }) %>
+  </tr>
+</section>
+
+<%- include('../partials/footer') %>
