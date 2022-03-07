@@ -18,6 +18,11 @@ const logEventSchema = new Schema ({
   outsideCZ: {
     type: Boolean,
   },
+
+  entry: {
+    type: String,
+  },
+
   owner: {
     type: Schema.Types.ObjectId, ref: "Profile"},
   entry: String
