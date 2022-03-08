@@ -4,13 +4,15 @@ import { isLoggedIn } from '../middleware/middleware.js'
 
 const router = Router()
 
-router.post('/', isLoggedIn, logEventsCtrl.create)
-
+// GET - localhost:3000/tacos
 router.get('/', logEventsCtrl.index)
-
-router.get("/new", logEventsCtrl.new)
-
+//GET /logEvents/new
+router.get('/new', logEventsCtrl.new)
+// POST /logEvents
 router.post('/', logEventsCtrl.create)
+
+// POST - localhost:3000/tacos
+router.post('/', isLoggedIn, logEventsCtrl.create)
 
 
 export {
