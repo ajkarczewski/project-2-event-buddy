@@ -1,41 +1,40 @@
 import { LogEvent } from '../models/logEvent.js'
 
 function newlogEvent(req, res) {
-  res.render("logEvents/new")
+  res.render('logEvents/new', {
+    title: "Log New Event"
+  })
 }
 
 function create(req, res) {
-  // convert checkbox of nothing or "on" to boolean
   req.body.outsideCZ = !!req.body.outsideCZ
-  for (let key in req.body) {
-    if(req.body[key] === ""){
-      delete req.body[key]
-    }
+  LogEvent.create(req.body)
+  .then(()=> {
+    res.redirect('/logEvents/new')
+  })
+}
+
+  //   const logEvent = new LogEvent(req.body)
+
+  //   logEvent.save(function(error) {
+  //     // console.log(req.body)
+  //     if (error) return res.redirect('logEvents/index')
+  //     res.redirect(`/logEvents/${logEvent._id}`);
+  //   })
+  // }
+
+  // function index(req, res){
+  //   LogEvent.find({}, (error, logEvents) => {
+  //     res.render('logEvents/index', {
+  //       logEvents: logEvents,
+  //       title: 'All logEvents',
+  //     })
+  //   })
+  // }
+
+
+
+  export {
+    create,
+    newlogEvent as new,
   }
-
-  const logEvent = new LogEvent(req.body)
-  
-  logEvent.save(function(error) {
-    // console.log(req.body)
-    if (error) return res.redirect('logEvents/index')
-    res.redirect(`/logEvents/${logEvent._id}`);
-  })
-}
-
-function index(req, res){
-  LogEvent.find({}, (error, logEvents) => {
-    res.render('logEvents/index', {
-      logEvents: logEvents,
-      title: 'All logEvents',
-    })
-  })
-}
-
-
-
-export {
-  newlogEvent as new,
-  create,
-  index,
-  
-}

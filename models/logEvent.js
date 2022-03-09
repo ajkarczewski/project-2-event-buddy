@@ -3,18 +3,28 @@ import mongoose from 'mongoose'
 const Schema = mongoose.Schema
 
 const logEventSchema = new Schema ({
-  name: String,
-  location: String,
-  date: Date,
+  name: {
+    type: String,
+  },
+
+  location: {
+    type: String,
+  },
+
+  date: {
+    type: Date,
+  }, 
+
   eventType: {
     type: String,
     enum: ["Art/Culture", "Nature", "Food", "Work", "Misc"]
   },
+
   rating: {
     type: String,
-    default: "I had a blast!",
-    enum: ["I had a blast!", "Meh", "Snooze fest"]
+    enum: ["I had a blast!", "Meh", "Snoozefest"]
   },
+
   outsideCZ: {
     type: Boolean,
   },
@@ -25,7 +35,8 @@ const logEventSchema = new Schema ({
 
   owner: {
     type: Schema.Types.ObjectId, ref: "Profile"},
-  entry: String
+}, {
+  timestamps: true
 })
 
 const LogEvent = mongoose.model('LogEvent', logEventSchema)

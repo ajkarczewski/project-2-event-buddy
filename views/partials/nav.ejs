@@ -4,11 +4,10 @@
 </head>
 <body>
   <nav>
-    <a href="/logEvents">📝</a></a>
-    <a href="/eventLogs">📓</a></a>
+    <i></i>
     <% if (user) { %>
       <a href="/auth/logout">
-        <button type="submit">👋</button>
+        <button type="submit">👋 logout</button>
       </a>
     <% } else { %>
       <a href="/auth/google" class="siwg-link">
@@ -17,4 +16,8 @@
         </button>
       </a>
     <% } %>
+
+    <a href="/eventLogs">📓 View my events journal</a>
+    <a href="/logEvents/new">📝 Log a new event!</a>
+
   </nav>
