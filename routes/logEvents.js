@@ -9,6 +9,8 @@ router.get('/new', logEventsCtrl.new)
 router.get('/:id', logEventsCtrl.show)
 router.get('/:id/edit', logEventsCtrl.edit)
 router.post('/', logEventsCtrl.create)
+router.put('/:id', logEventsCtrl.update)
+router.delete('/:id', logEventsCtrl.delete)
 
 // router.post('/', isLoggedIn, logEventsCtrl.create)
 

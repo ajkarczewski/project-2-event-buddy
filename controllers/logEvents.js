@@ -18,6 +18,7 @@ function newlogEvent(req, res) {
 
 function create(req, res) {
   req.body.outsideCZ = !!req.body.outsideCZ
+  // do i need this in in create and update^
   LogEvent.create(req.body)
   .then(()=> {
     res.redirect('/logEvents')
@@ -61,12 +62,28 @@ function edit(req, res) {
   //   })
   // }
 
+function update(req, res) {
+  req.body.outsideCZ = !!req.body.outsideCZ
+  LogEvent.findByIdAndUpdate(req.params.id, req.body, {new: true})
+  .then(() => {
+    res.redirect('/logEvents')
+  })
+}
 
+function deleteLogEvent(req, res) {
+  LogEvent.findByIdAndDelete(req.params.id)
+  .then(() => {
+    res.redirect('/logEvents')
+  })
+}
 
   export {
+    deleteLogEvent as delete,
+    update,
     edit,
     show,
     index,
     create,
     newlogEvent as new,
   }
+  

@@ -3,7 +3,7 @@
 <%- include("../partials/nav") %>
 
   <h1>Edit <%= logEvent.name %></h1>
-  <form method="" action="">
+  <form method="POST" action="/logEvents/<%=logEvent._id%>?_method=PUT">
     <label> Event Name:
       <label>
         Name: <input type="text" value="<%=logEvent.name%>" name="name" autocomplete="off">

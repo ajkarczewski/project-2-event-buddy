@@ -21,6 +21,9 @@
       <%= logEvent.outsideCZ ? 'outside comfort zone' : 'not outside comfort zone'%>
       -
       <%= logEvent.entry %>
+      <form method="POST" action="/logEvents/<%= logEvent._id %>?_method=DELETE">
+        <button>Delete <%= logEvent.name %></button>
+    </form>
       </h2>
 
 <% }); %>
