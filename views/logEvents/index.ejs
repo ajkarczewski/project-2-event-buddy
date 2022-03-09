@@ -1,42 +1,28 @@
-<%- include('../partials/nav') %>
+<%- include("../partials/html-head") %>
+<%- include("../partials/nav") %>
 
-<!-- <section>
-  <h1>Log Event! 📝📝📝</h1>
-  <h2>All Events!</h2>
-  <h2>Add an event</h2>
-  <form action="/logEvents" method="POST">
-    <label>
-      Name: 
-      <input type="text" name="name" autocomplete="off">
-    </label>
-    <label>
-      Date:
-      <input type="date" name="date">
-    </label>
-    <label>
-      Outside comfort zone?
-      <input type="checkbox" name="outsideCZ">
-    </label>
-    <br>
-    <label>
-      Entry:
-      <textarea type="text" name="entry" rows = "5" cols = "60" name = "description">
-        detail your event here! 😎
-     </textarea><br>
-    </label>
-    <button type="submit">Add 📝</button>
-    </form>
-    </section> -->
+<main>
+<section>
+  <h1>Logged Events...</h1>
+  <% logEvents.forEach(logEvent => { %>
+    <h2>
+      <%= logEvent.name %>
+      -
+      <%= logEvent.location %>
+      -
+      <%= logEvent.date %>
+      -
+      <%= logEvent.eventType %>
+      -
+      <%= logEvent.rating %>
+      -
+      <%= logEvent.outsideCZ %>
+      -
+      <%= logEvent.entry %>
+      </h2>
 
-    <!DOCTYPE html>
-    <html lang="en">
-    <head>
-      <meta charset="UTF-8">
-      <meta http-equiv="X-UA-Compatible" content="IE=edge">
-      <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <title><%= title %>Document</title>
-    </head>
-    <body>
-      <h1><%= title %></h1>
-    </body>
-    </html>    
+<% }); %>
+</section>
+</main>
+
+<%- include("../partials/footer") %>

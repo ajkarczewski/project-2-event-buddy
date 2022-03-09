@@ -1,5 +1,15 @@
 import { LogEvent } from '../models/logEvent.js'
 
+function index(req, res) {
+  LogEvent.find({})
+  .then(logEvents => {
+    res.render('logEvents/index',{
+    logEvents,
+    title: "Logged Events:"
+    })
+  })
+}
+
 function newlogEvent(req, res) {
   res.render('logEvents/new', {
     title: "Log New Event"
@@ -10,7 +20,7 @@ function create(req, res) {
   req.body.outsideCZ = !!req.body.outsideCZ
   LogEvent.create(req.body)
   .then(()=> {
-    res.redirect('/logEvents/new')
+    res.redirect('/logEvents')
   })
 }
 
@@ -35,6 +45,7 @@ function create(req, res) {
 
 
   export {
+    index,
     create,
     newlogEvent as new,
   }
