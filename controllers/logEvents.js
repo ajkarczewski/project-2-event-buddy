@@ -24,6 +24,25 @@ function create(req, res) {
   })
 }
 
+function show(req, res) {
+  LogEvent.findById(req.params.id)
+  .then(logEvent => {
+    res.render('logEvents/show', {
+      logEvent,
+      title: "Event details"
+    })
+  })
+}
+
+function edit(req, res) {
+  LogEvent.findById(req.params.id)
+  .then(logEvent => {
+    res.render('logEvents/edit', {
+      logEvent,
+      title: "Edit Event"
+    })
+  })
+}
   //   const logEvent = new LogEvent(req.body)
 
   //   logEvent.save(function(error) {
@@ -45,6 +64,8 @@ function create(req, res) {
 
 
   export {
+    edit,
+    show,
     index,
     create,
     newlogEvent as new,

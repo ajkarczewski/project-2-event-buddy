@@ -1,14 +1,10 @@
 <%- include('../partials/html-head') %>
 <%- include('../partials/nav') %>
 
-<title>Name: <%= logEvent.name %></title>
-  <h1>location: <%= logEvent.location %></h1>
-  <h1>date: <%= logEvent.date %></h1>
-    <section>
-      <div>Event Type: <%= logEvent.eventType %></div>
-      <div>Rating: <%= logEvent.rating %></div>
-      <div>Outside comfort Zone: <%= logEvent.outsideCZ %></div>
-      <div>Entry: <%= logEvent.entry %> </div>
+<section>
+<h1>Event Details:</h1>
+<h2>Name: <%= logEvent.name %></h2>
+<a href="/logEvents/<%=logEvent._id%>/edit">Edit Event</a>
     </section>
 
 

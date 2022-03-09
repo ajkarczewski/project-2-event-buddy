@@ -6,7 +6,9 @@
   <h1>Logged Events...</h1>
   <% logEvents.forEach(logEvent => { %>
     <h2>
+      <a href="/logEvents/<%= logEvent._id %>">
       <%= logEvent.name %>
+      </a>
       -
       <%= logEvent.location %>
       -
@@ -16,7 +18,7 @@
       -
       <%= logEvent.rating %>
       -
-      <%= logEvent.outsideCZ %>
+      <%= logEvent.outsideCZ ? 'outside comfort zone' : 'not outside comfort zone'%>
       -
       <%= logEvent.entry %>
       </h2>

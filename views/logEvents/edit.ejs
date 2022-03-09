@@ -1,0 +1,47 @@
+<%- include("../partials/html-head") %>
+<link rel="stylesheet" href="/stylesheets/style.css">
+<%- include("../partials/nav") %>
+
+  <h1>Edit <%= logEvent.name %></h1>
+  <form method="" action="">
+    <label> Event Name:
+      <label>
+        Name: <input type="text" value="<%=logEvent.name%>" name="name" autocomplete="off">
+      </label>
+      <label> 
+        Location: <input type="text" value="<%=logEvent.location%>" name="location" autocomplete="off">
+      </label>
+      <label>
+        Date: <input type="date" value="<%=logEvent.date%>" name="date">
+      </label>
+      <label>
+        Event Type: <select name="eventType" value="<%=logEvent.eventType%>">
+          <option value="Art/Culture">Art/Culture</option>
+          <option value="Nature">Nature</option>
+          <option value="Food">Food</option>
+          <option value="Work">Work</option>
+          <option value="Misc">Misc</option>
+        </select>
+      </label>
+      <label>
+        Rating: <select name="rating" value="<%=logEvent.rating%>">
+          <option value="I had a blast!">"I had a blast!</option>
+          <option value="Meh">Meh</option>
+          <option value="Snoozefest">Snoozefest</option>
+        </select>
+      </label>
+      <label>
+        Outside comfort zone? <input type="checkbox" name="outsideCZ" <%= logEvent.outsideCZ ? 'checked' : '' %>>
+      </label>
+      <br>
+      <label>
+        Entry:
+      </label>
+        <textarea type="text" name="entry" value="<%=logEvent.entry%>" rows = "5" cols = "60">
+        </textarea>  
+      <br>
+      <button type="submit">Update 📝</button>
+  </form>
+
+
+<%- include("../partials/footer") %>
