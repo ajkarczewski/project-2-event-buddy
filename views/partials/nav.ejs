@@ -9,6 +9,15 @@
       <a href="/auth/logout">
         <button type="submit">👋 logout</button>
       </a>
+      <a href="/profiles">
+        <button type="submit">👥 buddies</button>
+      </a>
+      <a href="/logEvents/">
+        <button type="submit">📓 View my events journal</button>
+      </a>
+      <a href="/logEvents/new">
+        <button type="submit">📝 Log a new event!</button>
+        </a>
     <% } else { %>
       <a href="/auth/google" class="siwg-link">
         <button type="submit" class="siwg">
@@ -16,8 +25,5 @@
         </button>
       </a>
     <% } %>
-
-    <a href="/logEvents/">📓 View my events journal</a>
-    <a href="/logEvents/new">📝 Log a new event!</a>
 
   </nav>
