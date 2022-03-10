@@ -11,7 +11,74 @@
       >
     </div>
   <% } %>
-  <h1>It's <%= isSelf ? "you" : profile.name %>!</h1>
+  <h1>It's <%= isSelf ? "you" : profile.name %>!</h1> 
+  <% if (isSelf) { %>
+  <h2>Add a new Event!</h2>
+  <form 
+    action="/profiles/<%= profile._id %>/logEvents" method="POST">
+    <label> Event Name:
+      <label>
+        Name: <input type="text" name="name" autocomplete="off">
+      </label>
+      <label> 
+        Location: <input type="text" name="location" autocomplete="off">
+      </label>
+      <label>
+        Date: <input type="date" name="date">
+      </label>
+      <label>
+        Event Type: <select name="eventType">
+          <option value="Art/Culture">Art/Culture</option>
+          <option value="Nature">Nature</option>
+          <option value="Food">Food</option>
+          <option value="Work">Work</option>
+          <option value="Misc" selected>Misc</option>
+        </select>
+      </label>
+      <label>
+        Rating: <select name="rating">
+          <option value="I had a blast!" selected>"I had a blast!</option>
+          <option value="Meh">Meh</option>
+          <option value="Snoozefest">Snoozefest</option>
+        </select>
+      </label>
+      <label>
+        Outside comfort zone? <input type="checkbox" name="outsideCZ">
+      </label>
+      <br>
+      <label>
+        Entry:
+      </label>
+        <textarea type="text" name="entry" rows = "5" cols = "60">detail your event here! 😎
+        </textarea>  
+      <br>
+      <button type="submit">Add 📝</button>
+  </form> 
+  <% } %>
+<% if (profile.logEvents.length)  {%>
+    <h2>
+      <%= isSelf ? "Your" : `${profile.name}'s` %> Event Journal
+    </h2>
+    <% profile.logEvents.forEach(logEvent => { %>
+      <h2>
+          <%= logEvent.name %>
+          <!-- <%= logEvent.outsideCZ ? 'outside comfort zone' : 'not outside comfort zone'%> -->
+          <% if (isSelf) { %> 
+            <form 
+              action="/profiles/logEvents<%= logEvent._id %>?_method=DELETE" 
+              method="POST"
+              style="display: inline-block;"
+            >
+              <button type="submit">🗑 <%= logEvent.name %></button>
+            </form>
+          <% } %> 
+      </h2>
+    <% }) %>
+  <% } else { %>
+    <h2>
+      <%= isSelf ? "You don't" : `${profile.name} doesn't` %> have any event logs!
+    </h2> 
+  <% } %> 
 </main>
 
 <%- include('../partials/footer') %>

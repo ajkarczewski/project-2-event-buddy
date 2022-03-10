@@ -33,7 +33,39 @@ function show(req, res) {
   })
 }
 
+function createLogEvent(req, res) {
+  Profile.findById(req.user.profile._id)
+  .then(profile => {
+    profile.logEvents.push(req.body)
+    profile.save()
+    .then(() => {
+      res.redirect(`/profiles/${req.user.profile._id}`)
+    })
+  })
+  .catch(err => {
+    console.log(err)
+    res.redirect(`/profiles/${req.user.profile._id}`)
+  })
+}
+
+function deleteLogEvent(req, res) {
+  Profile.findById(req.user.profile._id)
+  .then(profile => {
+    profile.logEvents.remove({_id: req.params.id})
+    profile.save()
+    .then(()=> {
+      res.redirect(`/profiles/${req.user.profile._id}`)
+    })
+  })
+  .catch(err => {
+    console.log(err)
+    res.redirect(`/profiles/${req.user.profile._id}`)
+  })
+}
+
 export {
   index,
   show,
+  createLogEvent,
+  deleteLogEvent
 }

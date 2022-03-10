@@ -44,23 +44,6 @@ function edit(req, res) {
     })
   })
 }
-  //   const logEvent = new LogEvent(req.body)
-
-  //   logEvent.save(function(error) {
-  //     // console.log(req.body)
-  //     if (error) return res.redirect('logEvents/index')
-  //     res.redirect(`/logEvents/${logEvent._id}`);
-  //   })
-  // }
-
-  // function index(req, res){
-  //   LogEvent.find({}, (error, logEvents) => {
-  //     res.render('logEvents/index', {
-  //       logEvents: logEvents,
-  //       title: 'All logEvents',
-  //     })
-  //   })
-  // }
 
 function update(req, res) {
   req.body.outsideCZ = !!req.body.outsideCZ
