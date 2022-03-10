@@ -1,11 +1,47 @@
 <%- include('../partials/html-head') %>
-<%- include('../partials/nav') %>
+    <%- include('../partials/nav') %>
 
-<section>
-<h1>Event Details:</h1>
-<h2>Name: <%= logEvent.name %></h2>
-<a href="/logEvents/<%=logEvent._id%>/edit">Edit Event</a>
-    </section>
+        <section>
+            <h1>
+                <%= logEvent.name %>
+            </h1>
+        </section>
+        <label>
+            Location: <%=logEvent.location%>
+        </label>
+        <label>
+            Date: <input type="date" value="<%= logEvent.date %>" name="date">
+        </label>
+        <label>
+            Event Type: <%=logEvent.eventType%>
+        </label>
+        <label>
+            Rating: "<%=logEvent.rating%>
+        </label>
+        <label>
+            Outside comfort zone? <input type="checkbox" name="outsideCZ" <%=logEvent.outsideCZ ? 'checked' : '' %>>
+        </label>
+        <br>
+        <label>
+            Entry:
+        </label>
+
+        <p>
+            <%= logEvent.entry %>
+        </p>
+
+        <br>
+
+        <!-- <form method="POST" action="/logEvents/<%=logEvent._id%>?_method=PUT"> -->
+        <button> <a href="/logEvents/<%=logEvent._id%>/edit">✏️</a></button>
+
+        <form method="POST" action="/logEvents/<%= logEvent._id %>?_method=DELETE">
+            <button>🗑</button>
+        </form>
+        </form>
 
 
-<%- include('../partials/footer') %>
+        <%- include('../partials/footer') %>
+
+
+            <!-- <a href="/logEvents/<%=logEvent._id%>/edit">Edit Event</a> -->

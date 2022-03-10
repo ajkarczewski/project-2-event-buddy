@@ -4,29 +4,21 @@
 <main>
 <section>
   <h1>Logged Events...</h1>
+  <% if (logEvents.length) { %>
   <% logEvents.forEach(logEvent => { %>
     <h2>
       <a href="/logEvents/<%= logEvent._id %>">
       <%= logEvent.name %>
       </a>
       -
-      <%= logEvent.location %>
-      -
-      <%= logEvent.date %>
-      -
-      <%= logEvent.eventType %>
-      -
-      <%= logEvent.rating %>
-      -
       <%= logEvent.outsideCZ ? 'outside comfort zone' : 'not outside comfort zone'%>
       -
-      <%= logEvent.entry %>
-      <form method="POST" action="/logEvents/<%= logEvent._id %>?_method=DELETE">
-        <button>Delete <%= logEvent.name %></button>
-    </form>
       </h2>
 
 <% }); %>
+<% } else { %>
+  <h1>Hmmm... no entries</h1>
+<% } %>
 </section>
 </main>
 

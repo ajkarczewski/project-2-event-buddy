@@ -6,13 +6,13 @@
   <form method="POST" action="/logEvents/<%=logEvent._id%>?_method=PUT">
     <label> Event Name:
       <label>
-        Name: <input type="text" value="<%=logEvent.name%>" name="name" autocomplete="off">
+        <input type="text" value="<%=logEvent.name%>" name="name" autocomplete="off">
       </label>
       <label> 
         Location: <input type="text" value="<%=logEvent.location%>" name="location" autocomplete="off">
       </label>
       <label>
-        Date: <input type="date" value="<%=logEvent.date%>" name="date">
+        Date: <input type="date" value="<%= logEvent.date %>" name="date">
       </label>
       <label>
         Event Type: <select name="eventType" value="<%=logEvent.eventType%>">
@@ -37,10 +37,14 @@
       <label>
         Entry:
       </label>
-        <textarea type="text" name="entry" value="<%=logEvent.entry%>" rows = "5" cols = "60">
-        </textarea>  
+
+        <textarea type="text" name="entry" rows = "5" cols = "60"><%= logEvent.entry %>
+        </textarea>
+
       <br>
+
       <button type="submit">Update 📝</button>
+      
   </form>
 
 
