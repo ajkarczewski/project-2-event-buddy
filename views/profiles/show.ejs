@@ -65,7 +65,7 @@
           <!-- <%= logEvent.outsideCZ ? 'outside comfort zone' : 'not outside comfort zone'%> -->
           <% if (isSelf) { %> 
             <form 
-              action="/profiles/logEvents<%= logEvent._id %>?_method=DELETE" 
+              action="/profiles/logEvents/<%= logEvent._id %>?_method=DELETE" 
               method="POST"
               style="display: inline-block;"
             >
