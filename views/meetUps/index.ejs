@@ -2,16 +2,24 @@
 <%- include('../partials/nav') %>
 
 <section>
+  <h1>Meet Ups!</h1>
+  <% if (user) { %>
+    <h2>Add a meetup</h2>
+    <form action="/meetUps" method="POST">
+      <label>
+        Subject:
+        <input type="text" name="subject" autocomplete="off">
+      </label>
+      <button type="submit">Post</button>
+    </form>
+  <% } %>
   <h1>🤜🤛 Meet ups</h1>
 	<ul>
     <% if (meetUps.length) { %>
       <% meetUps.forEach(meetUp => { %>
-        <h2>
-          <%= meetUp.owner %>
-          -
-          <%= meetUp.subject%>
-          -
-          </h2>
+        <li>
+          <a href="/meetUps/<%= meetUp._id %>"><%= meetUp.subject %></a> 
+        </li>
     <% }); %>
     <% } else { %>
       <h1>Hmmm... no meet ups!</h1>

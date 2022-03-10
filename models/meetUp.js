@@ -11,7 +11,6 @@ const replySchema = new Schema({
 
 const meetUpSchema = new Schema({
   owner: {type: Schema.Types.ObjectId, ref: "Profile"},
-  //or user??^
   subject: String,
   replies: [replySchema]
 
