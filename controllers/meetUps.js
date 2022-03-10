@@ -5,13 +5,13 @@ function index(req, res) {
   .then(meetUps => {
     res.render('meetUps/index', {
       meetUps,
-      title: "🤜🤛 Meet ups"
+      title: "Meet Ups"
     })
   })
-  // .catch(err => {
-  //   console.log(err)
-  //   res.redirect("/meetUps")
-  // })
+  .catch(err => {
+    console.log(err)
+    res.redirect("/meetUps")
+  })
 }
 
 export {

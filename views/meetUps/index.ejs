@@ -1,0 +1,22 @@
+<%- include('../partials/html-head') %>
+<%- include('../partials/nav') %>
+
+<section>
+  <h1>🤜🤛 Meet ups</h1>
+	<ul>
+    <% if (meetUps.length) { %>
+      <% meetUps.forEach(meetUp => { %>
+        <h2>
+          <%= meetUp.owner %>
+          -
+          <%= meetUp.subject%>
+          -
+          </h2>
+    <% }); %>
+    <% } else { %>
+      <h1>Hmmm... no meet ups!</h1>
+    <% } %>
+  </ul>
+</section>
+
+<%- include('../partials/footer') %>
