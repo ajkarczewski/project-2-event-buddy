@@ -36,6 +36,7 @@ function show(req, res) {
 function createLogEvent(req, res) {
   Profile.findById(req.user.profile._id)
   .then(profile => {
+    req.body.outsideCZ = !!req.body.outsideCZ
     profile.logEvents.push(req.body)
     profile.save()
     .then(() => {

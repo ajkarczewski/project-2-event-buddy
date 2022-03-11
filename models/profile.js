@@ -1,8 +1,14 @@
 import mongoose from 'mongoose'
 
 const logEventSchema = new mongoose.Schema({
-  name: String,
-  location: String,
+  name: {
+    type: String,
+    required: [true, 'Field is required']
+  },
+  location: {
+    type: String,
+    required: [true, 'Field is required']
+  },
   date: Date,
   eventType: {
     type: String,
@@ -12,8 +18,11 @@ const logEventSchema = new mongoose.Schema({
     type: String,
     enum: ["I had a blast!", "Meh", "Snoozefest"]
   },
+  entry: {
+    type: String,
+    // required: [true, 'Field is required']
+  }, 
   outsideCZ: Boolean,
-  entry:String,
 }, {
   timestamps: true
 })
