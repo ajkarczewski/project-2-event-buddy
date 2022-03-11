@@ -6,15 +6,17 @@ Welcome to my second General Assembly project! EventBuddy is a wellness app that
 ![Imgur](https://i.imgur.com/xgZmShP.png)
 ![Imgur](https://i.imgur.com/kXSOW4O.png)
 
-
 ## How it's going 👩‍💻
-![Imgur](https://i.imgur.com/7SJw9qg.png)
-![Imgur](https://i.imgur.com/j34srBW.png)
-
+![Imgur](https://i.imgur.com/2Rg51ou.png)
+![Imgur](https://i.imgur.com/efwkE8K.png)
 
 ## Technologies Used 🛠
 
 JavaScript | HTML5 | CSS3 | Bootstrap | GitHub | Node.JS | Express.JS | MongoDB | Heroku | Microsoft Azure | Google OAuth
+
+## Credits 🖤
+- [HeroPatterns](https://heropatterns.com/)
+➡A collection of repeatable SVG background patterns to use on digital projects
 
 ## Icebox Items 🧊 
 

@@ -4,7 +4,7 @@
 <section>
   <h1></h1>
   <% if (user) { %>
-    <h2>Add a meetup</h2>
+    <h2>A community space to share quotes, thoughts, or anything 💬</h2>
     <form action="/meetUps" method="POST">
       <label>
         Subject:
@@ -13,7 +13,7 @@
       <button type="submit">Post</button>
     </form>
   <% } %>
-  <h1>🤜🤛 Meet ups</h1>
+  <h1></h1>
 	<ul>
     <% if (meetUps.length) { %>
       <% meetUps.forEach(meetUp => { %>
@@ -22,7 +22,7 @@
         </li>
     <% }); %>
     <% } else { %>
-      <h1>Hmmm... no meet ups!</h1>
+      <h1>Hmmm... nothing to see here!</h1>
     <% } %>
   </ul>
 </section>
