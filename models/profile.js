@@ -20,7 +20,6 @@ const logEventSchema = new mongoose.Schema({
   },
   entry: {
     type: String,
-    // required: [true, 'Field is required']
   }, 
   outsideCZ: Boolean,
 }, {

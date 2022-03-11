@@ -1,0 +1,20 @@
+<%- include('../partials/html-head') %>
+<%- include('../partials/nav') %>
+
+<section>
+  <h1>Edit your Meet Up post</h1>
+  <form action="/meetUps/<%= meetUp._id %>?_method=PUT" method="POST">
+    <label>
+      Name: 
+      <input 
+        type="text"
+        name="subject" 
+        value="<%= meetUp.subject %>" 
+        autocomplete="off"
+      >
+    </label>
+    <button type="submit">Update</button>
+  </form>
+</section>
+
+<%- include('../partials/footer') %>

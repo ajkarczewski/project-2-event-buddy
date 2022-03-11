@@ -52,13 +52,18 @@
                 </h2>
                 <% profile.logEvents.forEach(logEvent=> { %>
                   <h2>
-                    <%= logEvent.name %>
-                      <!-- <%= logEvent.outsideCZ ? 'outside comfort zone' : 'not outside comfort zone'%> -->
+                    <!-- <a href="/logEvents/<%= logEvent._id %>"> -->
+                      <%= logEvent.name %>
+                    <!-- </a> -->
+                    -
+                    <%= logEvent.outsideCZ ? 'outside comfort zone' : 'not outside comfort zone' %>
                       <% if (isSelf) { %>
-                        <form action="/profiles/logEvents/<%= logEvent._id %>?_method=DELETE" method="POST"
-                          style="display: inline-block;">
-                          <button type="submit">🗑 <%= logEvent.name %></button>
+                        <form action="/profiles/logEvents/<%= logEvent._id %>?_method=DELETE" method="POST">
+                          <button type="submit">🗑 </button>
                         </form>
+                        <!-- <form action="/profiles/<%= logEvent._id %>/edit" method="GET">
+                          <button class="btn" type="submit">✏️</button>
+                        </form> -->
                         <% } %>
                   </h2>
                   <% }) %>

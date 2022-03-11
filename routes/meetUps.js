@@ -8,9 +8,9 @@ router.get('/', meetUpsCtrl.index)
 router.post('/', meetUpsCtrl.create)
 router.get('/:id', meetUpsCtrl.show)
 router.post('/', isLoggedIn, meetUpsCtrl.create)
-
-// // PUT - localhost:300/taco/:id
-// router.put("/:id", isLoggedIn, meetUpsCtrl.update)
+router.get("/:id/edit", isLoggedIn, meetUpsCtrl.edit)
+router.put('/:id', isLoggedIn, meetUpsCtrl.update)
+router.delete('/:id', isLoggedIn, meetUpsCtrl.delete)
 
 
 export {

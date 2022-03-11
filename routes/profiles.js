@@ -6,9 +6,9 @@ const router = Router()
 
 router.get('/', isLoggedIn, profilesCtrl.index)
 router.get('/:id', isLoggedIn, profilesCtrl.show)
-router.get('/logEvents/:id', isLoggedIn, profilesCtrl.show)
+// router.get('/logEvents/:id', isLoggedIn, profilesCtrl.show)
+// router.get('/profile/logEvent/:id/edit', isLoggedIn, profilesCtrl.editLogEvent)
 router.post("/:id/logEvents", isLoggedIn, profilesCtrl.createLogEvent)
-
 router.delete('/logEvents/:id', isLoggedIn, profilesCtrl.deleteLogEvent)
 
 export {

@@ -41,8 +41,61 @@ function show(req, res) {
   })
 }
 
+function edit(req, res) {
+  MeetUp.findById(req.params.id)
+  .then(meetUp => {
+    res.render('meetUps/edit', {
+      meetUp,
+      title: "edit ✏️"
+    })
+  })
+  .catch(err => {
+    console.log(err)
+    res.redirect('/meetUps')
+  })
+}
+
+function update(req, res) {
+  MeetUp.findById(req.params.id)
+  .then(meetUp => {
+    if (meetUp.owner.equals(req.user.profile._id)) {
+      meetUp.updateOne(req.body, {new: true})
+      .then(()=> {
+        res.redirect(`/meetUps/${meetUp._id}`)
+      })
+    } else {
+      throw new Error ('🚫 Not authorized 🚫')
+    }
+  })
+  .catch(err => {
+    console.log(err)
+    res.redirect('/meetUps')
+  })
+}
+
+function deleteMeetUp(req, res) {
+  MeetUp.findById(req.params.id)
+  .then(meetUp => {
+    if (meetUp.owner.equals(req.user.profile._id)) {
+      meetUp.delete()
+      .then(() => {
+        res.redirect('/meetUps')
+      })
+    } else {
+      throw new Error ('🚫 Not authorized 🚫')
+    }   
+  })
+  .catch(err => {
+    console.log(err)
+    res.redirect('/meetUps')
+  })
+}
+
 export {
   index,
   create,
   show,
+  edit,
+  update,
+  deleteMeetUp as delete
 }

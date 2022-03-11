@@ -4,6 +4,14 @@
 <section>
 	<p><%= meetUp.owner.name %> says:</p>
   <h1><%= meetUp.subject %></h1>
-</section>
 
+<% if (meetUp.owner.equals(user?.profile._id)) { %>
+  <form action="/meetUps/<%= meetUp._id %>/edit" method="GET">
+    <button class="btn" type="submit">Edit Post ✏️</button>
+  </form>
+  <form action="/meetUps/<%= meetUp._id %>?_method=DELETE" method="POST">
+    <button class="btn" type="submit">Delete Post 🗑</button>
+  </form>
+<% } %>
+</section>
 <%- include('../partials/footer') %>
