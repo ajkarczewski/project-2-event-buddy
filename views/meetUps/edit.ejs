@@ -5,11 +5,18 @@
   <h1>Edit your Meet Up post</h1>
   <form action="/meetUps/<%= meetUp._id %>?_method=PUT" method="POST">
     <label>
-      Name: 
+      Subject: 
       <input 
         type="text"
         name="subject" 
         value="<%= meetUp.subject %>" 
+        autocomplete="off"
+      >
+      Details: 
+      <input 
+        type="text"
+        name="subject" 
+        value="<%= meetUp.details %>" 
         autocomplete="off"
       >
     </label>

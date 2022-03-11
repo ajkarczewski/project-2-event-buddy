@@ -51,21 +51,21 @@
                   <%= isSelf ? "Your" : `${profile.name}'s` %> Event Journal
                 </h2>
                 <% profile.logEvents.forEach(logEvent=> { %>
-                  <h2>
-                    <!-- <a href="/logEvents/<%= logEvent._id %>"> -->
+                    <li>
+                    <a href="/logEvents/<%= logEvent._id %>">
                       <%= logEvent.name %>
-                    <!-- </a> -->
+                    </a>
                     -
                     <%= logEvent.outsideCZ ? 'outside comfort zone' : 'not outside comfort zone' %>
+                    </li>
                       <% if (isSelf) { %>
                         <form action="/profiles/logEvents/<%= logEvent._id %>?_method=DELETE" method="POST">
                           <button type="submit">🗑 </button>
                         </form>
-                        <!-- <form action="/profiles/<%= logEvent._id %>/edit" method="GET">
+                        <form action="/profiles/<%= logEvent._id %>/edit" method="GET">
                           <button class="btn" type="submit">✏️</button>
-                        </form> -->
+                        </form>
                         <% } %>
-                  </h2>
                   <% }) %>
                     <% } else { %>
                       <h2>

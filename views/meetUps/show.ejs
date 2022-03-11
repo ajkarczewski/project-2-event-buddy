@@ -2,8 +2,14 @@
 <%- include('../partials/nav') %>
 
 <section>
-	<p><%= meetUp.owner.name %> says:</p>
-  <h1><%= meetUp.subject %></h1>
+	<p><%= meetUp.owner.name %> says:
+    <br>
+  <label>Subject:</label>
+  <%= meetUp.subject %>
+  <br>
+  <label>Details:</label>
+  <%= meetUp.details %>
+</p>
 
 <% if (meetUp.owner.equals(user?.profile._id)) { %>
   <form action="/meetUps/<%= meetUp._id %>/edit" method="GET">
