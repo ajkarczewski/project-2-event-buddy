@@ -7,13 +7,16 @@
     <i></i>
     <% if (user) { %>
       <a href="/auth/logout">
-        <button type="submit">👋 logout</button>
+        <button type="submit">👋 Logout</button>
       </a>
       <a href="/profiles">
-        <button type="submit">👥 buddies</button>
+        <button type="submit">👥 Buddies</button>
       </a>
       <a href="/meetUps">
-        <button type="submit">🤜🤛 Meet ups</button>
+        <button type="submit">🤜🤛 Meet Ups</button>
+      </a>
+      <a href="/profiles/<%= user.profile._id %>">
+        <button type="submit">📓 My Logs</button>
       </a>
     <% } else { %>
       <a href="/auth/google" class="siwg-link">
