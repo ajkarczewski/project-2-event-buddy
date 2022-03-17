@@ -2,16 +2,6 @@ import mongoose from 'mongoose'
 
 const Schema = mongoose.Schema
 
-const replySchema = new Schema({
-  message: {
-    type: String,
-    required: true
-  },
-  oPoster: String,
-}, {
-  timestamps: true
-})
-
 const meetUpSchema = new Schema({
   owner: {type: Schema.Types.ObjectId, ref: "Profile"},
   subject: {
@@ -20,7 +10,6 @@ const meetUpSchema = new Schema({
   details: {
     type: String,
   },
-  replies: [replySchema]
 
 }, {
   timestamps: true
